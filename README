@@ -1,0 +1,27 @@
+#
+# Author: Rogério Carvalho Schneider <stockrt@gmail.com>
+# URL:    http://stockrt.github.com
+#
+
+Generic setup.py (generic_setup). This setup.py reads values from the source
+code of your module/application and auto-assemble the setup() function
+arguments for distutils.
+It also automagically generate an RPM .spec file with data gathered from
+inside your main program source file.
+
+- Usage
+Just set the source_code variable to the correct file name:
+### DEFINES_START ###
+# Set this parameter to point to your source file, leave the rest as is:
+source_code = 'gpgen.py'
+[snip]
+### DEFINES_END ###
+
+./setup.py
+
+For more help on generic_setup, type:
+ ./setup.py generic_setup using
+ ./setup.py generic_setup rpmbuild
+
+For automated rpmbuild, with custom .spec, type:
+ ./setup.py rpmbuild
