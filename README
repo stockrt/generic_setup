@@ -25,3 +25,4 @@ For more help on generic_setup, type:
 
 For automated rpmbuild, with custom .spec, type:
  ./setup.py rpmbuild
+
