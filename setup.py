@@ -110,7 +110,7 @@ line, you should put your descriptions and then this:
 ### GENERIC_SETUP_MARKER_START ###
 __program_file__     = 'feedget.py'
 __program_name__     = '%s' % __program_file__.split('.py')[0]
-# if have scripts
+# if you have scripts
 __scripts__          = []
 # if only a module
 #__data_files__       = []
@@ -126,6 +126,9 @@ __copyright__        = 'Copyright (C) 2008 Rogério Carvalho Schneider'
 __license__          = 'GPLv3'
 __url__              = 'http://stockrt.github.com'
 __download_url__     = __url__
+# if installing a module
+#__py_modules__       = [__program_name__]
+# if you don't have modules
 __py_modules__       = []
 __platforms__        = ['any']
 __keywords__         = 'feed reader torrent download tvrss eztv vtv'
