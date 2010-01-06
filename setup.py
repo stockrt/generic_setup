@@ -17,8 +17,8 @@
 '''
 __program_file__     = 'setup.py'
 __program_name__     = 'generic_setup'
-__version__          = '0.1.2'
-__date__             = '2009/06/22'
+__version__          = '0.1.3'
+__date__             = '2010/01/05'
 __author_email__     = 'stockrt@gmail.com'
 __author__           = 'Rogério Carvalho Schneider <%s>' % __author_email__
 __maintainer_email__ = __author_email__
@@ -102,11 +102,19 @@ your application.
 - Right in the beginning of your source file, just after the interpreter
 line, you should put your descriptions and then this:
 
+
 -- copy this sample --
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 ### GENERIC_SETUP_MARKER_START ###
 __program_file__     = 'feedget.py'
 __program_name__     = '%s' % __program_file__.split('.py')[0]
+# if have scripts
 __scripts__          = []
+# if only a module
+#__data_files__       = []
+# if a program (have config files, extras)
 __data_files__       = [('/usr/local/%s/conf' % __program_name__, ['%s.conf' % __program_name__]), ('/usr/local/%s/bin' % __program_name__, [__program_file__]), ('/var/spool/%s' % __program_name__, [])]
 __version__          = '0.1.8'
 __date__             = '2008/12/05'
@@ -116,7 +124,7 @@ __maintainer_email__ = __author_email__
 __maintainer__       = __author__
 __copyright__        = 'Copyright (C) 2008 Rogério Carvalho Schneider'
 __license__          = 'GPLv3'
-__url__              = 'http://stockrtweb.homelinux.com'
+__url__              = 'http://stockrt.github.com'
 __download_url__     = __url__
 __py_modules__       = []
 __platforms__        = ['any']
@@ -160,6 +168,7 @@ echo
 ### GENERIC_SETUP_MARKER_END ###
 -- copy this sample --
 
+
 - Then here you start the 'import' calls, whatsoever.
 - Note that the tags MUST be placed as in the sample, since they are markers
 for the generic_setup:
@@ -184,7 +193,12 @@ source_code = 'feedget.py'
 ### DEFINES_END ###
 
 
+3) Remove all the %post script if you think you don't need it. Much probable
+if you are not installing a program (i.e. just installing a module).
+
+
 Done :)
+
 
 Now you can:
  ./setup.py install          install your app
@@ -423,8 +437,10 @@ entries are missing: [%s]' % (source_code, why)
         if sys.argv[1] == 'clean':
             os.system('rm -rf MANIFEST dist *.pyc *.pyo')
             sys.exit(0)
+
 if __name__ == '__main__':
     main()
+
 '''
 # References:
  http://www.python.org/doc/2.5.2/dist/dist.html
