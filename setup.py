@@ -394,6 +394,13 @@ entries are missing: [%s]' % (source_code, why)
         m.write(f + '\n')
     m.close()
 
+    # Modules
+    for m in spy_modules:
+        if not os.path.exists(m):
+            os.mkdir(m)
+        if not os.path.exists(m + '/__init__.py'):
+            open(m + '/__init__.py', 'a').write('')
+
     # All set here. Just use the values now.
 
     # Help for generic_setup
