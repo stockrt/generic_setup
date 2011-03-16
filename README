@@ -18,11 +18,11 @@ source_code = 'change_me.py'
 [... snip ...]
 ### DEFINES_END ###
 
-./setup.py
+    ./setup.py
 
 For more help on generic_setup, type:
- ./setup.py generic_setup using
- ./setup.py generic_setup rpmbuild
+    ./setup.py generic_setup using
+    ./setup.py generic_setup rpmbuild
 
 For automated rpmbuild, with custom .spec, type:
- ./setup.py rpmbuild
+    ./setup.py rpmbuild
