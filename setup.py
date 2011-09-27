@@ -233,10 +233,10 @@ Now you can:
     ./setup.py sdist            create a source distribution (tarball, zip file, etc.)
     ./setup.py bdist_rpm        create an RPM distribution
     ./setup.py bdist_egg        create an "egg" distribution
-    ./setup.py register         register the distribution with the Python Package Index
-    ./setup.py sdist upload     upload the source distribution to the Python Package Index
-    ./setup.py bdist_rpm upload upload the RPM distribution to the Python Package Index
-    ./setup.py bdist_egg upload upload the "egg" distribution to the Python Package Index
+    ./setup.py register         register the distribution with the Python package index
+    ./setup.py sdist upload     upload the source distribution to the Python package index
+    ./setup.py bdist_rpm upload upload the RPM distribution to the Python package index
+    ./setup.py bdist_egg upload upload the "egg" distribution to the Python package index
 
 And the special rpmbuild:
     ./setup.py rpmbuild         automated rpmbuild with custom .spec
