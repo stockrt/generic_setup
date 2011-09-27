@@ -257,7 +257,7 @@ def generic_setup_rpmbuild():
 - Create an RPM based on the .spec automagically generated from the data
 gathered in the main source file of your application:
 
-    yum -y install rpmdev-setuptree
+    yum -y install rpmdevtools
     rpmdev-setuptree
 
     ./setup.py rpmbuild
@@ -507,5 +507,5 @@ http://docs.python.org/distutils/apiref.html#module-distutils.core
 http://pypi.python.org/pypi?:action=list_classifiers
 
 # Maximum RPM:
-http://www.rpm.org/max-rpm/
+http://www.rpm.org/max-rpm
 '''
