@@ -5,7 +5,7 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 ### GENERIC_SETUP_MARKER_START ###
-__program_file__        = 'your_program.py'
+__program_file__        = 'change_me.py'
 __program_name__        = '%s' % __program_file__.split('.py')[0]
 __scripts__             = []
 __data_files__          = []
