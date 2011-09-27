@@ -487,6 +487,7 @@ entries are probably missing: [%s]' % (source_code, why)
             local('rm -rf MANIFEST build dist temp *.pyc *.pyo')
             for m in spy_modules:
                 local('rm -rf %s.egg-info' % m)
+            local('rm -rf %s.egg-info' % sname)
             sys.exit(0)
 
 if __name__ == '__main__':
