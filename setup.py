@@ -420,7 +420,7 @@ entries are probably missing: [%s]' % (source_code, why)
     smaintainer = smaintainer.split(' <')[0]
 
     # Create the MANIFEST file with data_files included
-    s = ['setup.py', setup_data_file.__program_file__]
+    s = ['setup.py', 'ez_setup.py', setup_data_file.__program_file__]
     for f in sdata_files:
         for f1 in f[1]:
             s.append(f1)
