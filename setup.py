@@ -372,7 +372,7 @@ def main():
     from setuptools import setup, find_packages
 
     # Read source file content
-    if not os.path.exists(source_code):
+    if not os.path.isfile(source_code):
         print
         print 'ERR: Check your setup.py script defines. File not found: [%s]' % source_code
         print
@@ -447,18 +447,21 @@ entries are probably missing: [%s]' % (source_code, why)
     sauthor = sauthor.split(' <')[0]
     smaintainer = smaintainer.split(' <')[0]
 
-    # Create the MANIFEST file with data_files included
-    s = ['setup.py', 'ez_setup.py', setup_data_file.__program_file__]
+    # Update the MANIFEST.in file with data_files included
+    if os.path.isfile('MANIFEST.in'):
+        manifest_lines = open('MANIFEST.in', 'r').read().splitlines()
+    else:
+        manifest_lines = []
     for f in sdata_files:
         for f1 in f[1]:
-            s.append(f1)
+            manifest_lines.append('include ' + f1)
     for f in sscripts:
-        s.append(f)
-    s = sortuniq(s)
-    m = open('MANIFEST', 'w')
-    for f in s:
-        m.write(f + '\n')
-    m.close()
+        manifest_lines.append('include ' + f)
+    manifest_lines = sortuniq(manifest_lines)
+    manifest_file = open('MANIFEST.in', 'w')
+    for f in manifest_lines:
+        manifest_file.write(f + '\n')
+    manifest_file.close()
 
     # Modules
 #    for m in spy_modules:
@@ -506,13 +509,13 @@ entries are probably missing: [%s]' % (source_code, why)
         classifiers         = sclassifiers,
         description         = sdescription,
         long_description    = slong_description,
-        packages            = find_packages()
+        packages            = find_packages(),
     )
 
     # Clean all, really
     if len(sys.argv) == 2:
         if sys.argv[1] == 'clean':
-            local('rm -rf MANIFEST build dist temp *.pyc *.pyo')
+            local('rm -rf build dist temp *.pyc *.pyo')
             for m in spy_modules:
                 local('rm -rf %s.egg-info' % m)
             local('rm -rf %s.egg-info' % sname)
