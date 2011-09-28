@@ -528,12 +528,13 @@ if __name__ == '__main__':
 # References:
 http://peak.telecommunity.com/DevCenter/EasyInstall
 http://peak.telecommunity.com/DevCenter/setuptools
-http://docs.python.org/distutils/
-http://docs.python.org/install/
+http://docs.python.org/distutils
+http://docs.python.org/install
 http://docs.python.org/distutils/setupscript.html
 http://docs.python.org/distutils/sourcedist.html
 http://docs.python.org/distutils/builtdist.html
 http://docs.python.org/distutils/apiref.html#module-distutils.core
+http://guide.python-distribute.org
 
 # Trove classifiers:
 http://pypi.python.org/pypi?:action=list_classifiers
