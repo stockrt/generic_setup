@@ -1,8 +1,33 @@
 #!/usr/bin/env python
 # coding: utf-8
+
+# Copyright (C) 2009-2011 Rogério Carvalho Schneider <stockrt@gmail.com>
+#
+# This file is part of generic_setup.
+#
+# generic_setup is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# generic_setup is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with generic_setup.  If not, see <http://www.gnu.org/licenses/>.
+#
+#
+# setup.py
+#
+# Created:  Jun 22, 2009
+# Author:   Rogério Carvalho Schneider <stockrt@gmail.com>
+
 import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
+
 '''
  * =========================================================================
  * setup.py
@@ -18,25 +43,26 @@ sys.setdefaultencoding('utf-8')
  *                http://stockrt.github.com
  * =========================================================================
 '''
+
 __program_file__        = 'setup.py'
 __program_name__        = 'generic_%s' % __program_file__.split('.py')[0]
 __scripts__             = []
 __data_files__          = []
-__version__             = '0.1.4'
-__date__                = '2011/03/14'
+__version__             = '0.1.5'
+__date__                = '2011/09/28'
 __author_name__         = 'Rogério Carvalho Schneider'
 __author_email__        = 'stockrt@gmail.com'
 __author__              = '%s <%s>' % (__author_name__, __author_email__)
 __maintainer_name__     = __author_name__
 __maintainer_email__    = __author_email__
 __maintainer__          = '%s <%s>' % (__maintainer_name__, __maintainer_email__)
-__copyright__           = 'Copyright (C) 2011 %s' % __author_name__
+__copyright__           = 'Copyright (C) 2009-2011 %s' % __author_name__
 __license__             = 'GPLv3'
 __url__                 = 'http://stockrt.github.com'
 __download_url__        = __url__
 __py_modules__          = []
 __platforms__           = ['any']
-__keywords__            = 'generic setup.py'
+__keywords__            = 'generic setup.py generic_setup'
 __classifiers__         = [
         'Development Status :: 1 - Planning',
         'Environment :: Web Environment',
@@ -164,7 +190,7 @@ __author__              = '%s <%s>' % (__author_name__, __author_email__)
 __maintainer_name__     = __author_name__
 __maintainer_email__    = __author_email__
 __maintainer__          = '%s <%s>' % (__maintainer_name__, __maintainer_email__)
-__copyright__           = 'Copyright (C) 2011 %s' % __author_name__
+__copyright__           = 'Copyright (C) 2009-2011 %s' % __author_name__
 __license__             = 'GPLv3'
 __url__                 = 'http://stockrt.github.com'
 __download_url__        = __url__
