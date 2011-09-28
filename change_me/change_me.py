@@ -1,5 +1,29 @@
 #!/usr/bin/env python
 # coding: utf-8
+
+# Copyright (C) 2009-2011 Rogério Carvalho Schneider <stockrt@gmail.com>
+#
+# This file is part of generic_setup.
+#
+# generic_setup is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# generic_setup is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with generic_setup.  If not, see <http://www.gnu.org/licenses/>.
+#
+#
+# change_me.py
+#
+# Created:  Jun 22, 2009
+# Author:   Rogério Carvalho Schneider <stockrt@gmail.com>
+
 import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -8,16 +32,24 @@ sys.setdefaultencoding('utf-8')
 __program_file__        = 'change_me.py'
 __program_name__        = '%s' % __program_file__.split('.py')[0]
 __scripts__             = []
+#__data_files__          = [('/usr/local/%s/conf' % __program_name__, ['%s.conf' % __program_name__]),
+#                            ('/usr/local/%s/bin' % __program_name__, [__program_file__]),
+#                            ('/var/spool/%s' % __program_name__, []),
+#]
+#__data_files__          = [('/usr/local/%s/conf' % __program_name__, ['%s/%s.conf' % (__program_name__, __program_name__)]),
+#                            ('/usr/local/%s/bin' % __program_name__, ['%s/%s' % (__program_name__, __program_file__)]),
+#                            ('/var/spool/%s' % __program_name__, []),
+#]
 __data_files__          = []
-__version__             = '0.1.0'
-__date__                = '2011/03/14'
+__version__             = '0.1.1'
+__date__                = '2011/09/28'
 __author_name__         = 'Rogério Carvalho Schneider'
 __author_email__        = 'stockrt@gmail.com'
 __author__              = '%s <%s>' % (__author_name__, __author_email__)
 __maintainer_name__     = __author_name__
 __maintainer_email__    = __author_email__
 __maintainer__          = '%s <%s>' % (__maintainer_name__, __maintainer_email__)
-__copyright__           = 'Copyright (C) 2011 %s' % __author_name__
+__copyright__           = 'Copyright (C) 2009-2011 %s' % __author_name__
 __license__             = 'GPLv3'
 __url__                 = 'http://stockrt.github.com'
 __download_url__        = __url__
@@ -36,11 +68,19 @@ __classifiers__         = [
 ]
 __description__         = 'Python utilities.'
 __long_description__    = '''%s
-Python utilities.
-''' % __program_file__
+%s
+''' % (__program_file__, open('README.txt').read())
 __rpm_data__            = '''
+%post
+echo
+echo 'Some message to your users'
+echo
+
 %files
 %defattr(-,root,root,-)
+%dir /var/spool/%{name}
+%config(noreplace) /usr/local/%{name}/conf/%{name}.conf
+/usr/local/%{name}/bin/%{name}.py
 '''
 ### GENERIC_SETUP_MARKER_END ###
 
@@ -57,9 +97,9 @@ You need to install some extra modules in order to run this program:
 - easy_install
     wget http://peak.telecommunity.com/dist/ez_setup.py
     python ez_setup.py
-    easy_install ...
+    easy_install (see import error above)
 - pip:
-    pip install ...
+    pip install (see import error above)
 '''
     sys.exit(1)
 ### IMPORTS_END ###
@@ -72,7 +112,7 @@ You need to install some extra modules in order to run this program:
 ##########
 def main():
     print '''
-    Sample program.
+Sample program.
     '''
 
 if __name__ == '__main__':

@@ -1,0 +1,7 @@
+include COPYING
+include LICENSE.txt
+include MANIFEST.in
+include README
+include README.txt
+include setup.py
+recursive-include change_me

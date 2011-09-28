@@ -80,7 +80,7 @@ You need to install some extra modules in order to run this program:
 
 ### DEFINES_START ###
 # Set this parameter to point to your source file, leave the rest as is:
-source_code = 'change_me.py'
+source_code = 'change_me/change_me.py'
 
 # Basic specfile defines
 brpmdata = '''
@@ -152,9 +152,12 @@ __scripts__             = []
 # if only a module
 __data_files__          = []
 # if a program (have config files, extras)
-__data_files__          = [('/usr/local/%s/conf' % __program_name__, ['%s.conf' % __program_name__]), ('/usr/local/%s/bin' % __program_name__, [__program_file__]), ('/var/spool/%s' % __program_name__, [])]
-__version__             = '0.1.8'
-__date__                = '2011/03/14'
+__data_files__          = [('/usr/local/%s/conf' % __program_name__, ['%s/%s.conf' % (__program_name__, __program_name__)]),
+                           ('/usr/local/%s/bin' % __program_name__, ['%s/%s' % (__program_name__, __program_file__)]),
+                           ('/var/spool/%s' % __program_name__, []),
+]
+__version__             = '0.1.1'
+__date__                = '2011/09/28'
 __author_name__         = 'Rogério Carvalho Schneider'
 __author_email__        = 'stockrt@gmail.com'
 __author__              = '%s <%s>' % (__author_name__, __author_email__)
@@ -183,8 +186,8 @@ __classifiers__         = [
 ]
 __description__         = 'Python utilities.'
 __long_description__    = \'''%s
-Python utilities.
-\''' % __program_file__
+%s
+\''' % (__program_file__, open('README.txt').read())
 __rpm_data__            = \'''
 %post
 echo
@@ -216,8 +219,8 @@ your program.
 
 ### DEFINES_START ###
 # Set this parameter to point to your source file, leave the rest as is:
-#source_code = 'change_me.py'
-source_code = 'your_program.py'
+#source_code = 'change_me/change_me.py'
+source_code = 'your_program/your_program.py'
 ### DEFINES_END ###
 
 
