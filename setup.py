@@ -84,8 +84,7 @@ inside your main program source file.
 
 ### IMPORTS_START ###
 try:
-    import ez_setup
-    ez_setup.use_setuptools()
+    from distutils.core import setup
     import re
     import os
     import itertools
