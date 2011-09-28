@@ -96,9 +96,9 @@ You need to install some extra modules in order to run this program:
 - easy_install
     wget http://peak.telecommunity.com/dist/ez_setup.py
     python ez_setup.py
-    easy_install ...
+    easy_install (see import error above)
 - pip:
-    pip install ...
+    pip install (see import error above)
 '''
     sys.exit(1)
 ### IMPORTS_END ###
