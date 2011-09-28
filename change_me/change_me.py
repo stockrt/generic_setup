@@ -78,9 +78,9 @@ echo
 
 %files
 %defattr(-,root,root,-)
-%dir /var/spool/%{name}
-%config(noreplace) /usr/local/%{name}/conf/%{name}.conf
-/usr/local/%{name}/bin/%{name}.py
+#%dir /var/spool/%{name}
+#%config(noreplace) /usr/local/%{name}/conf/%{name}.conf
+#/usr/local/%{name}/bin/%{name}.py
 '''
 ### GENERIC_SETUP_MARKER_END ###
 
