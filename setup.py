@@ -312,10 +312,13 @@ def rpmbuild(sname, sversion, srpmdata):
         local('mkdir -p ~/rpmbuild/RPMS')
         local('mkdir -p ~/rpmbuild/SOURCES')
         local('mkdir -p ~/rpmbuild/SRPMS')
+
         # Default .spec
         local('./setup.py bdist_rpm --spec-only')
+
         # Default tarball
         local('./setup.py sdist --dist-dir ~/rpmbuild/SOURCES/')
+
         # Applying the changes to the .spec (%post/%files/%defattr/%dir/%config):
         # Initialize spec with the basic
         newspec = brpmdata
@@ -335,6 +338,7 @@ def rpmbuild(sname, sversion, srpmdata):
         local('./setup.py install --root=%s --record=%s' % (build_tmp, build_installed_files))
         local('python -O -m compileall %s' % build_tmp)
         local('cd %s && find . -type f | sed \'s,^\.,,g\' >> %s' % (build_tmp, build_installed_files))
+
         new_installed_files = []
         for l in open(build_installed_files).readlines():
             new_installed_files.append(l)
@@ -346,8 +350,10 @@ def rpmbuild(sname, sversion, srpmdata):
 
         # New specfile
         open('dist/%s.spec' % sname, 'w').write(newspec)
+
         # Create the new RPM
         local('rpmbuild -bb dist/%s.spec' % sname)
+
         # Copy the created RPM to dist/
         local('/bin/cp ~/rpmbuild/RPMS/noarch/%s-%s-*.rpm dist/' % (sname, sversion))
     except Exception, why:
