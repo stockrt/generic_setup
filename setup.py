@@ -48,8 +48,8 @@ __program_file__        = 'setup.py'
 __program_name__        = 'generic_%s' % __program_file__.split('.py')[0]
 __scripts__             = []
 __data_files__          = []
-__version__             = '0.1.5'
-__date__                = '2011/09/28'
+__version__             = '0.1.6'
+__date__                = '2011/10/14'
 __author_name__         = 'Rogério Carvalho Schneider'
 __author_email__        = 'stockrt@gmail.com'
 __author__              = '%s <%s>' % (__author_name__, __author_email__)
@@ -202,8 +202,8 @@ __data_files__          = [('/usr/local/%s/conf' % __program_name__, ['%s/%s.con
                            ('/usr/local/%s' % __program_name__, ['README.txt']),
                            ('/var/spool/%s' % __program_name__, []),
 ]
-__version__             = '0.1.1'
-__date__                = '2011/09/28'
+__version__             = '0.1.6'
+__date__                = '2011/10/14'
 __author_name__         = 'Rogério Carvalho Schneider'
 __author_email__        = 'stockrt@gmail.com'
 __author__              = '%s <%s>' % (__author_name__, __author_email__)

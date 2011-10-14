@@ -51,9 +51,8 @@ __data_files__          = []
 #                           ('/usr/local/%s' % __program_name__, ['README.txt']),
 #                           ('/var/spool/%s' % __program_name__, []),
 #]
-__data_files__          = []
-__version__             = '0.1.1'
-__date__                = '2011/09/28'
+__version__             = '0.1.2'
+__date__                = '2011/10/14'
 __author_name__         = 'Rogério Carvalho Schneider'
 __author_email__        = 'stockrt@gmail.com'
 __author__              = '%s <%s>' % (__author_name__, __author_email__)
