@@ -120,7 +120,13 @@ brpmdata = '''
 %define debug_package %{nil}
 '''
 
+# Readme
+import os
 PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
+if os.path.isfile(os.path.join(PROJECT_DIR, 'README.txt')):
+    README_FILE =  os.path.join(PROJECT_DIR, 'README.txt')
+else:
+    README_FILE =  os.path.join(PROJECT_DIR, '../README.txt')
 ### DEFINES_END ###
 
 def local(command):
@@ -170,6 +176,14 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 ### GENERIC_SETUP_MARKER_START ###
+# Readme
+import os
+PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
+if os.path.isfile(os.path.join(PROJECT_DIR, 'README.txt')):
+    README_FILE =  os.path.join(PROJECT_DIR, 'README.txt')
+else:
+    README_FILE =  os.path.join(PROJECT_DIR, '../README.txt')
+
 __program_file__        = 'your_program.py'
 __program_name__        = '%s' % __program_file__.split('.py')[0]
 # if you have scripts
@@ -212,7 +226,7 @@ __classifiers__         = [
 __description__         = 'Python utilities.'
 __long_description__    = \'''%s
 %s
-\''' % (__program_file__, open('README.txt').read())
+\''' % (__program_file__, open(README_FILE).read())
 __rpm_data__            = \'''
 %post
 echo
