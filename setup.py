@@ -126,13 +126,13 @@ PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
 def local(command):
     ret = os.system(command)
     if ret:
-        raise Exception('ERR: Error running local command: %s' % command)
+        raise Exception('ERR: Error running local command: %s\n' % command)
 
 def sortuniq(lista):
     if isinstance(lista, list) or isinstance(lista, tuple):
         return sorted([a for a,b in itertools.groupby(sorted(lista))])
     else:
-        raise TypeError('Argument for sortuniq(arg) must be a tuple or a list')
+        raise TypeError('Argument for sortuniq(arg) must be a tuple or a list.\n')
 
 def generic_setup():
     print 'For more help on %s, type:' % __program_name__
@@ -380,7 +380,8 @@ def main():
     # Read source file content
     if not os.path.isfile(source_code):
         print
-        print 'ERR: Check your setup.py script defines. File not found: [%s]' % source_code
+        print 'ERR: Check your setup.py script defines.'
+        print 'File not found: [%s]' % source_code
         print
         generic_setup()
         sys.exit(1)
@@ -398,10 +399,10 @@ def main():
     if '### GENERIC_SETUP_MARKER_START ###' not in source_code_data or \
     '### GENERIC_SETUP_MARKER_END ###' not in source_code_data:
         print
-        print 'ERR: Check your program "%s" define markers. Some of the \
-required markers are missing (\
-\"### GENERIC_SETUP_MARKER_START ###\" or \
-\"### GENERIC_SETUP_MARKER_END ###\").' % source_code
+        print 'ERR: Check your program "%s" define markers.' % source_code
+        print 'Some of the required markers are missing:'
+        print '"### GENERIC_SETUP_MARKER_START ###" or "### GENERIC_SETUP_MARKER_END ###".'
+        print
         generic_setup()
         sys.exit(1)
     setup_data += source_code_data.split('### GENERIC_SETUP_MARKER_START ###')[1].split('### GENERIC_SETUP_MARKER_END ###')[0]
@@ -412,8 +413,9 @@ required markers are missing (\
         import setup_data_file
     except Exception, why:
         print
-        print 'ERR: Check your program "%s" defines. Some of the required \
-entries are probably missing: [%s]' % (source_code, why)
+        print 'ERR: Check your program "%s" defines.' % source_code
+        print 'Some of the required entries are probably missing: [%s]' % why
+        print
         generic_setup()
         sys.exit(1)
     try:
@@ -444,8 +446,9 @@ entries are probably missing: [%s]' % (source_code, why)
         srpmdata            = setup_data_file.__rpm_data__
     except Exception, why:
         print
-        print 'ERR: Check your program "%s" defines. Some of the required \
-entries are probably missing: [%s]' % (source_code, why)
+        print 'ERR: Check your program "%s" defines.' % source_code
+        print 'Some of the required entries are probably missing: [%s]' % why
+        print
         generic_setup()
         sys.exit(1)
 
