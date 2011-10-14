@@ -540,10 +540,10 @@ def main():
     # Clean all, really
     if len(sys.argv) == 2:
         if sys.argv[1] == 'clean':
-            local('rm -rf build dist temp *.pyc *.pyo')
+            local('rm -rf MANIFEST build dist temp *.pyc *.pyo')
+            local('rm -rf %s.egg-info' % sname)
             for m in spy_modules:
                 local('rm -rf %s.egg-info' % m)
-            local('rm -rf %s.egg-info' % sname)
             sys.exit(0)
 
 if __name__ == '__main__':
