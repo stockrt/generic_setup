@@ -104,7 +104,7 @@ You need to install some extra modules in order to run this program:
 ### IMPORTS_END ###
 
 ### DEFINES_START ###
-# Set this parameter to point to your source file, leave the rest as is:
+# Set this parameter to point to your source file, leave the rest as it is:
 source_code = 'change_me/change_me.py'
 
 # Basic specfile defines
@@ -112,11 +112,11 @@ brpmdata = '''
 # Recommended Topdir
 %define _topdir %(echo $HOME)/rpmbuild
 
-# So the build does not fail due to unpackaged files or missing doc files:
+# So the build does not fail due to unpackaged files or missing doc files
 %define _unpackaged_files_terminate_build 0
 %define _missing_doc_files_terminate_build 0
 
-# No debug package:
+# No debug package
 %define debug_package %{nil}
 '''
 
@@ -257,7 +257,7 @@ your program.
 - Point it to your app:
 
 ### DEFINES_START ###
-# Set this parameter to point to your source file, leave the rest as is:
+# Set this parameter to point to your source file, leave the rest as it is:
 #source_code = 'change_me/change_me.py'
 source_code = 'your_program/your_program.py'
 ### DEFINES_END ###
@@ -333,7 +333,7 @@ def rpmbuild(sname, sversion, srpmdata):
         # Default tarball
         local('./setup.py sdist --dist-dir ~/rpmbuild/SOURCES/')
 
-        # Applying the changes to the .spec (%post/%files/%defattr/%dir/%config):
+        # Applying the changes to the .spec (%post/%files/%defattr/%dir/%config)
         # Initialize spec with the basic
         newspec = brpmdata
         for l in open('dist/%s.spec' % sname).readlines():
@@ -342,7 +342,7 @@ def rpmbuild(sname, sversion, srpmdata):
             # '%defattr(-,root,root,-)'
             if '%files -f INSTALLED_FILES' not in l and '%defattr' not in l:
                 newspec += l
-        # Insert the user defined specs (%post/%files/%defattr/%dir/%config):
+        # Insert the user defined specs (%post/%files/%defattr/%dir/%config)
         newspec += srpmdata
 
         # New INSTALLED_FILES
@@ -368,7 +368,7 @@ def rpmbuild(sname, sversion, srpmdata):
         # Create the new RPM
         local('rpmbuild -bb dist/%s.spec' % sname)
 
-        # Copy the created RPM to dist/
+        # Copy the created RPM to dist
         local('/bin/cp ~/rpmbuild/RPMS/noarch/%s-%s-*.rpm dist/' % (sname, sversion))
     except Exception, why:
         print 'ERR: Error building the RPM with custom .spec file: [%s]' % why
@@ -421,7 +421,7 @@ def main():
         sys.exit(1)
     setup_data += source_code_data.split('### GENERIC_SETUP_MARKER_START ###')[1].split('### GENERIC_SETUP_MARKER_END ###')[0]
 
-    # Save this content, so we can import to use it later:
+    # Save this content so we can import to use it later
     open('setup_data_file.py', 'w').write(setup_data)
     try:
         import setup_data_file
@@ -499,7 +499,7 @@ def main():
     if len(sys.argv) == 1:
         generic_setup()
 
-    # rpmbuild for a custom, automagically generated RPM .spec file
+    # Rpmbuild for a custom, automagically generated RPM .spec file
     if len(sys.argv) == 2:
         if sys.argv[1] == 'rpmbuild':
             rpmbuild(sname, sversion, srpmdata)
