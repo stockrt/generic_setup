@@ -351,7 +351,9 @@ def rpmbuild(sname, sversion, srpmdata):
         local('rm -rf %s' % build_tmp)
         local('./setup.py install --root=%s --record=%s' % (build_tmp, build_installed_files))
         local('python -O -m compileall %s' % build_tmp)
-        local('cd %s && find . -type f | sed \'s,^\.,,g\' >> %s' % (build_tmp, build_installed_files))
+        local('cd %s && find . -type f | sed \'s/^\.//g\' >> %s' % (build_tmp, build_installed_files))
+        local('cd %s && sed -i \'/\/bin\/.*\.pyc$/d\' %s' % (build_tmp, build_installed_files))
+        local('cd %s && sed -i \'/\/bin\/.*\.pyo$/d\' %s' % (build_tmp, build_installed_files))
 
         new_installed_files = []
         for l in open(build_installed_files).readlines():
