@@ -40,13 +40,16 @@ else:
 __program_file__        = 'change_me.py'
 __program_name__        = '%s' % __program_file__.split('.py')[0]
 __scripts__             = []
+__data_files__          = []
 #__data_files__          = [('/usr/local/%s/conf' % __program_name__, ['%s.conf' % __program_name__]),
-#                            ('/usr/local/%s/bin' % __program_name__, [__program_file__]),
-#                            ('/var/spool/%s' % __program_name__, []),
+#                           ('/usr/local/%s/bin' % __program_name__, [__program_file__]),
+#                           ('/usr/local/%s' % __program_name__, ['README.txt']),
+#                           ('/var/spool/%s' % __program_name__, []),
 #]
 #__data_files__          = [('/usr/local/%s/conf' % __program_name__, ['%s/%s.conf' % (__program_name__, __program_name__)]),
-#                            ('/usr/local/%s/bin' % __program_name__, ['%s/%s' % (__program_name__, __program_file__)]),
-#                            ('/var/spool/%s' % __program_name__, []),
+#                           ('/usr/local/%s/bin' % __program_name__, ['%s/%s' % (__program_name__, __program_file__)]),
+#                           ('/usr/local/%s' % __program_name__, ['README.txt']),
+#                           ('/var/spool/%s' % __program_name__, []),
 #]
 __data_files__          = []
 __version__             = '0.1.1'

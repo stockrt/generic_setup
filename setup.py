@@ -191,8 +191,15 @@ __scripts__             = []
 # if only a module
 __data_files__          = []
 # if a program (have config files, extras)
+__data_files__          = [('/usr/local/%s/conf' % __program_name__, ['%s.conf' % __program_name__]),
+                           ('/usr/local/%s/bin' % __program_name__, [__program_file__]),
+                           ('/usr/local/%s' % __program_name__, ['README.txt']),
+                           ('/var/spool/%s' % __program_name__, []),
+]
+# if a program with module (have config files, extras)
 __data_files__          = [('/usr/local/%s/conf' % __program_name__, ['%s/%s.conf' % (__program_name__, __program_name__)]),
                            ('/usr/local/%s/bin' % __program_name__, ['%s/%s' % (__program_name__, __program_file__)]),
+                           ('/usr/local/%s' % __program_name__, ['README.txt']),
                            ('/var/spool/%s' % __program_name__, []),
 ]
 __version__             = '0.1.1'
